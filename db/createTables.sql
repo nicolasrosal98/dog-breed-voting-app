@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS dog;
+DROP TABLE IF EXISTS breed;
+
+CREATE TABLE breed (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE dog (
+    id SERIAL PRIMARY KEY,
+    breed_id INT NOT NULL,
+    subbreed_name VARCHAR(50) DEFAULT NULL,
+    score INT DEFAULT 0,
+    FOREIGN KEY (breed_id) REFERENCES breed(id)
+);
