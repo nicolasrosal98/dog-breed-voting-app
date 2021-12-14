@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node dist/server.ts",
     "start:dev": "LOCAL=true ts-node server.ts",
+    "start:populate": "ts-node db/initialiseTable.ts",
     "format": "prettier --write server.ts",
     "format:check": "prettier --check server.ts",
     "lint": "eslint server.ts",
@@ -18,8 +19,10 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "node-fetch": "^3.1.0",
     "pg": "^8.5.1",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "ts-node": "^10.4.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.9",
