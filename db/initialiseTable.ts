@@ -60,7 +60,7 @@ async function initialiseTable() {
     }
   });
 
-  await client.query("SELECT NOW()").then(() => client.end());
+  // await client.query("SELECT NOW()").then(() => client.end());
 }
 
 initialiseTable();
