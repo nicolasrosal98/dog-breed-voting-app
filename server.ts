@@ -2,6 +2,7 @@ import { Client } from "pg";
 import { config } from "dotenv";
 import express from "express";
 import cors from "cors";
+import path from "path";
 
 config(); //Read .env file lines as though they were env vars.
 
@@ -27,10 +28,7 @@ const client = new Client(dbConfig);
 client.connect();
 
 app.get("/", async (req, res) => {
-  res.json({
-    status: "success",
-    message: "our API documentation - pending",
-  });
+  res.sendFile(path.join(__dirname + "/index.html"));
 });
 
 app.put<{}, {}, { breed: string; subbreed: string | null }>(
