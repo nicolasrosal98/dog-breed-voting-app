@@ -28,7 +28,7 @@ const client = new Client(dbConfig);
 client.connect();
 
 app.get("/", async (req, res) => {
-  res.sendFile(path.join(__dirname + "/index.html"));
+  res.sendFile(path.join(__dirname + "/../index.html"));
 });
 
 app.put<{}, {}, { breed: string; subbreed: string | null }>(
