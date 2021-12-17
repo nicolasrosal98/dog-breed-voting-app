@@ -1,11 +1,10 @@
-# mark-fullstack-proj--starter-1
+# Dog Breed Voting App: Back-End
 
-## Usage:
+![Screenshot 2021-12-17 at 9 17 55](https://user-images.githubusercontent.com/66834619/146512331-a16080e0-e3a2-4203-b42d-26227d9b83b4.png)
 
-Instead of cloning this project, click "Use this template".  This will allow you to create a repo on github which has this project's content but which is not a fork of it.
-
-Make sure you create the repo as being owned by your own account not by the WeAreAcademy organisation.
-
+- [Deployed API](https://dog-breed-voting-app.herokuapp.com/)
+- [Project Documentation](https://www.notion.so/weareacademy/Documentation-e62fbd29aa124bd2a69214809331f2d8)
+- [Front-End Github Repository](https://github.com/nchumphot/dog-breed-voting-app-frontend)
 
 ## Install
 
@@ -15,16 +14,36 @@ Make sure you create the repo as being owned by your own account not by the WeAr
 
 Copy .env.example to .env and set `DATABASE_URL` and `PORT` to your liking.
 
-Example for a local database: `DATABASE_URL=postgres://neill@localhost/pastebin`
+Example for a local database: `DATABASE_URL=postgres://academy@localhost/dogbreedDB`
 
 You will need to create your own databases for this project - one locally and one on Heroku.
 
-## Running locally
+## Create and Populate Database
+
+### SQL Query to Create Table
+The `createTables.sql` file provides the queries used to create the tables for this project.
+
+### Populate Tables
+`ts-node db/initialiseTable.ts`
+
+This will populate your database depending on the dbConfig provided:
+  - Locally: `const dbConfig = {
+              connectionString: process.env.DATABASE_URL,
+              ssl: false,
+            };`
+  - Heroku: `const dbConfig = {
+              connectionString: process.env.DATABASE_URL,
+              ssl: { rejectUnauthorized: false },
+            };`
+  
+## Running API
+
+### Running locally
 
 `yarn start:dev`
 
 This will set the env var LOCAL to true, which will cause the db connection configuration to NOT use SSL (appropriate for your local db)
 
-## running on heroku
+### Running on heroku
 
 When the project is deployed to heroku, the command in your `Procfile` file will be run.
